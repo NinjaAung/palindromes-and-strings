@@ -1,0 +1,4 @@
+.DS_store/
+.vs_code/
+.pytest_cache/
+__pycache__/
