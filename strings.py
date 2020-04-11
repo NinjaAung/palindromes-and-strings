@@ -44,6 +44,24 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+    indexes_list = []
+    if pattern == '':
+        return [x for x in range(0,len(text))]
+    for letter in range(0, len(text)):
+        if text[letter] == pattern[0]:
+            if len(pattern) == 1: 
+                indexes_list.append(letter)
+            else:    
+                for pattern_letter in range(0, len(pattern)):
+                    print(letter+pattern_letter, pattern_letter)
+                    if letter+pattern_letter == len(text):
+                        break
+                    if text[letter+pattern_letter] != pattern[pattern_letter]:
+                        break
+                    elif pattern_letter == len(pattern)-1:
+                        indexes_list.append(letter)
+                        break
+    return indexes_list
 
 
 def test_string_algorithms(text, pattern):
