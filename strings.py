@@ -4,8 +4,19 @@ def contains(text, pattern):
     """Return a boolean indicating whether pattern occurs in text."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement contains here (iteratively and/or recursively)
-
+    if pattern == '':
+        return True
+    for letter in range(0, len(text)):
+        if text[letter] == pattern[0]:
+            if len(pattern) == 1: 
+                return True
+            else:    
+                for pattern_letter in range(0, len(pattern)):
+                    if text[letter+pattern_letter] != pattern[pattern_letter]:
+                        break
+                    elif pattern_letter == len(pattern)-1:
+                        return True
+    return False
 
 def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
