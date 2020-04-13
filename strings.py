@@ -53,7 +53,6 @@ def find_all_indexes(text, pattern):
                 indexes_list.append(letter)
             else:    
                 for pattern_letter in range(0, len(pattern)):
-                    print(letter+pattern_letter, pattern_letter)
                     if letter+pattern_letter == len(text):
                         break
                     if text[letter+pattern_letter] != pattern[pattern_letter]:
